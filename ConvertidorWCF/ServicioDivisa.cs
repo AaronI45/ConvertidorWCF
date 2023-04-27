@@ -10,22 +10,16 @@ namespace ConvertidorWCF
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
     public class ServicioDivisa : IServicioDivisa
     {
-        public string GetData(int value)
+        public double convertirDeDolarAPeso(double dolares)
         {
-            return string.Format("You entered: {0}", value);
+            double conversionAPeso = dolares * 18.15;
+            return conversionAPeso;
         }
 
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
+        public double convertirDePesoADolar(double pesos)
         {
-            if (composite == null)
-            {
-                throw new ArgumentNullException("composite");
-            }
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-            return composite;
+            double conversionADolar = pesos / 18.15;
+            return conversionADolar;
         }
     }
 }
